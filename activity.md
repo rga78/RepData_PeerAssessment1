@@ -3,7 +3,7 @@ Coursera - Reproducible Research
 Peer Assessment #1  
 Feb 14, 2015  
 
-
+--------------------------------------------------------------------------------------
 The following is a brief analysis of activity data collected by a single person
 wearing a fitness tracker.  The data contains step counts in 5 minute intervals
 over a two month span.
@@ -49,10 +49,11 @@ hist(steps.per.day$V1,
 
 Each bar in the histogram represents a range of 1000 steps.  As you can see 
 the histogram approximates a normal distribution centered around 10,000-11,000 steps. 
-The mean steps per day is 1.076619 &times; 10<sup>4</sup> and the median is 10765.
+The mean steps per day is 10766 and the median is 10765.
 This corresponds with what we see in the histogram.
 
 
+--------------------------------------------------------------------------------------
 ## What is the average daily activity pattern?
 
 
@@ -75,6 +76,7 @@ steps.per.interval <- transform(steps.per.interval, interval=factor(interval))
 # a line.  So I'll use plot+lines instead.
 with(steps.per.interval, plot(interval,V1,type="n"))
 with(steps.per.interval, lines(interval,V1))
+title(main="Mean Steps Per Interval",xlab="interval",ylab="Mean Steps")
 ```
 
 ![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png) 
@@ -100,6 +102,7 @@ with ~206 steps.  That's probably around the time every morning
 when this person went to work or class or whatever.
 
 
+--------------------------------------------------------------------------------------
 ## Imputing missing values
 
 
@@ -179,16 +182,17 @@ hist(steps.per.day2$V1,
 ![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png) 
 
 
-As you can see, the histograms are mostly unchanged except for the bar in the middle, which on the imputed
-side has 8 more days in that range.  This corresponds to the 8 days that are missing data in the original
-dataset.  The imputed values for those days are all the same and, when summed up per day, equal exactly
-to the average steps per day, 1.076619 &times; 10<sup>4</sup>, which falls in the middle bar.  So all 8 days got added to the middle
+As you can see, the histograms are mostly identical except for the bar in the middle, which on the imputed
+side has an additional 8 days in the middle range of 10,000-11,000 steps.  This corresponds to the 8 days that are missing data in the original
+dataset.  The imputed values for those days are all the same and, when summed up per day, equal 
+the average steps per day, 10766, which falls in the middle bar.  So all 8 days got added to the middle
 bar, while the other bars remained unchanged.
 
 The mean and median are slightly different between the two datasets.  This is likely due to rounding errors introduced
 in the getMeanStepsPerInterval function, which rounds off the mean steps per interval to an integer.
 
 
+--------------------------------------------------------------------------------------
 ## Are there differences in activity patterns between weekdays and weekends?
 
 
