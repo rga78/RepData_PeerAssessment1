@@ -1,12 +1,19 @@
-Rob Alderman (robertgalderman@gmail.com)  
-Coursera - Reproducible Research  
-Peer Assessment #1  
-Feb 14, 2015  
+---
+title: "Reproducible Research: Peer Assessment 1"
+author: Rob Alderman robertgalderman@gmail.com
+output: PA1_template.md
+  html_document: PA1_template.html
+    keep_md: true
+---
 
---------------------------------------------------------------------------------------
+
 The following is a brief analysis of activity data collected by a single person
 wearing a fitness tracker.  The data contains step counts in 5 minute intervals
 over a two month span.
+
+
+--------------------------------------------------------------------------------------
+## Loading and preprocessing the data
 
 First things first, let's load the data...
 
